@@ -4,41 +4,27 @@ Example
 Sample Input 1: Hello World
 Sample output 1 Hollo Werld
 */ 
+//its in reverse not shifting
+#include<iostream>
+#include<string>
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-string s,v;
+string s,vowel;
 getline(cin,s);
 int n=s.size();
-int j=0;
- 
-//for storing vowel in v[j] from string s
+int j;
 for (int i=0;i<n;i++)
 {
-if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
-v+=s[i];
+ if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
+ vowel[j++]=s[i];
 }
-// replacing last vowel with the first vowel
-for (int i=n-1;i>=0;i--)
-{
-if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
-{
-s[i]=v[0];
-n=i;;
-break;
-}
-}
-//shifting the next vowel found in s[i]
 for (int i=0;i<n;i++)
 {
-if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
-{
-s[i]=v[j+1];
-j++;
+ if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')
+ s[i]=vowel[--j];
 }
-}
-cout<<s<<endl;
-cout<<v;
- 
+cout<<s;
+
 }
